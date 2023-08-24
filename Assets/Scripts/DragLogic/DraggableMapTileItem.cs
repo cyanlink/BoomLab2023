@@ -11,11 +11,18 @@ public class DraggableMapTileItem : MonoBehaviour, IBeginDragHandler, IEndDragHa
     private MapTileSO tileData;
 
 
-    private SpriteRenderer spriteRenderer;
+    private Image image;
 
-    public void InitializeContent()
+    public void InitializeContent(MapTileSO tile)
     {
+        this.tileData = tile;
+        image.sprite = tile.mapSprite;
 
+    }
+
+    private void Awake()
+    {
+        image  = GetComponentInChildren<Image>();
     }
     // Start is called before the first frame update
     void Start()

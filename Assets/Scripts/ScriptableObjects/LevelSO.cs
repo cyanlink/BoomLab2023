@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelSO : ScriptableObject
 {
     [SerializeField]
-    LevelMap levelMap;
+    public LevelMap levelMap;
 
     public bool CanMove(MapTileSO tile, MapDirections dir)
     {
