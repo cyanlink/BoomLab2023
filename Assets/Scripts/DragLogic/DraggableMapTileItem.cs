@@ -8,7 +8,22 @@ using UnityEngine.UI;
 public class DraggableMapTileItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 {
     [SerializeField]
-    private Image mapTileImage;
+    private MapTileSO mapData;
+
+    private SpriteRenderer spriteRenderer;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.sprite = mapData.mapSprite;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public event Action<DraggableMapTileItem> OnTileDroppedOn, OnTileBeginDrag, OnTileEndDrag;
     public void OnBeginDrag(PointerEventData eventData)
@@ -31,15 +46,5 @@ public class DraggableMapTileItem : MonoBehaviour, IBeginDragHandler, IEndDragHa
         throw new System.NotImplementedException();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

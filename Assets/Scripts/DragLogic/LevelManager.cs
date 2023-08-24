@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private TMP_Text mainText;
+    [SerializeField] private TMP_Text mainDialogText;
 
-    [SerializeField] private 
+    [SerializeField] private LevelSO levelData;
     // Start is called before the first frame update
     void Start()
     {

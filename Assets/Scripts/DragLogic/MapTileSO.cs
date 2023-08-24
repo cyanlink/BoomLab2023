@@ -7,10 +7,24 @@ public class MapTileSO : ScriptableObject
     [SerializeField]
     private bool top, bottom, left, right;
 
-    [SerializeField]
-    private Sprite mapSprite;
+    public Sprite mapSprite;
 
-    public bool DirectionState(MapDirections dir)
+    [SerializeField]
+    private bool isStart, isDestination;
+
+    private void OnValidate()
+    {
+        //mutual exclusive
+        if(isStart){
+            isDestination = false;
+        }
+        if (isDestination)
+        {
+            isStart = false;
+        }
+    }
+
+    public bool GetDirectionAllow(MapDirections dir)
     {
         return dir switch
         {
@@ -26,4 +40,19 @@ public class MapTileSO : ScriptableObject
 public enum MapDirections
 {
     top, bottom, left, right
+}
+
+static class MapDirectionsHelper
+{
+    public static MapDirections GetOppositeDirection(MapDirections dir)
+    {
+        return dir switch
+        {
+            MapDirections.top => MapDirections.bottom,
+            MapDirections.bottom => MapDirections.top,
+            MapDirections.left => MapDirections.right,
+            MapDirections.right => MapDirections.left,
+            _ => throw new System.NotImplementedException(),
+        };
+    }
 }
