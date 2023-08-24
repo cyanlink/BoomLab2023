@@ -7,16 +7,20 @@ using UnityEngine.UI;
 
 public class DraggableMapTileItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 {
-    [SerializeField]
-    private MapTileSO mapData;
+    private LevelManager levelManager;
+    private MapTileSO tileData;
+
 
     private SpriteRenderer spriteRenderer;
 
+    public void InitializeContent()
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        spriteRenderer.sprite = mapData.mapSprite;
+
     }
 
     // Update is called once per frame
