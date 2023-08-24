@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class MapTileSO : ScriptableObject
 {
     [SerializeField]
@@ -9,7 +10,6 @@ public class MapTileSO : ScriptableObject
 
     public Sprite mapSprite;
 
-    [SerializeField]
     private bool isStart, isDestination;
 
     private void OnValidate()

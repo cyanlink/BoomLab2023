@@ -17,6 +17,11 @@ public class LevelManager : MonoBehaviour
         jigsawGrid.ApplyLevelData(levelData);
     }
 
+    internal void DoStep()
+    {
+        throw new NotImplementedException();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

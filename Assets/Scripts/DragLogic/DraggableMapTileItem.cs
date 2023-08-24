@@ -9,8 +9,9 @@ public class DraggableMapTileItem : MonoBehaviour, IBeginDragHandler, IEndDragHa
 {
     private LevelManager levelManager;
     private MapTileSO tileData;
+   
 
-
+    private DraggableMapTileItem follow;
     private Image image;
 
     public void InitializeContent(MapTileSO tile)
@@ -22,13 +23,9 @@ public class DraggableMapTileItem : MonoBehaviour, IBeginDragHandler, IEndDragHa
 
     private void Awake()
     {
-        image  = GetComponentInChildren<Image>();
+        image = GetComponentInChildren<Image>();
     }
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
